@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "resolvePackageJsonExports": true,
+    "module": "commonjs",                    // Changed from "nodenext"
+    "moduleResolution": "node10",             // Changed from "nodenext"
+    "resolvePackageJsonExports": false,       // Changed to false
     "esModuleInterop": true,
     "isolatedModules": true,
     "declaration": true,
@@ -10,7 +10,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2023",
+    "target": "ES2021",                        // Changed from ES2023 for better compatibility
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
@@ -20,6 +20,11 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@/*": ["./src/*"]                       // Add path alias
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
