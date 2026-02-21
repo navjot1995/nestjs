@@ -1,4 +1,6 @@
 {
-  "singleQuote": true,
-  "trailingComma": "all"
+  "endOfLine": "lf",
+  "semi": true,
+  "parser": "typescript",
+  "singleQuote": true
 }
