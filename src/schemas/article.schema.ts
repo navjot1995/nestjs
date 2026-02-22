@@ -3,28 +3,34 @@ import { Document, Types } from 'mongoose';
 
 @Schema({ timestamps: true })
 export class Article extends Document {
-  @Prop({ required: true })
+  @Prop({
+    type: String,
+    required: true,
+  })
   title: string;
 
-  @Prop({ required: true })
+  @Prop({
+    type: String,
+    required: true,
+  })
   content: string;
 
-  @Prop({ default: 'draft' }) // draft, published, archived
+  @Prop({ type: String, default: 'draft' }) // draft, published, archived
   status: string;
 
   @Prop({ type: Types.ObjectId, ref: 'User', required: true })
   author: Types.ObjectId;
 
-  @Prop({ default: 0 })
+  @Prop({ type: Number, default: 0 })
   views: number;
 
   @Prop([String])
   tags: string[];
 
-  @Prop()
+  @Prop({ type: String })
   featuredImage: string;
 
-  @Prop()
+  @Prop({ type: Date })
   publishedAt: Date;
 }
 
